@@ -54,5 +54,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
+
 (provide 'init-ibuffer)
 ;;; init-ibuffer.el ends here

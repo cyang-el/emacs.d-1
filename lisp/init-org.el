@@ -384,6 +384,9 @@ typical word processor."
       (sql . t)
       (sqlite . t)))))
 
+(load-file "~/.emacs.d/lisp/init-org-bullets.el")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (provide 'init-org)
 ;;; init-org.el ends here
