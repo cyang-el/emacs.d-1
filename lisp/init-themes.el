@@ -29,11 +29,11 @@
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+  (setq custom-enabled-themes '(gruvbox))
   (reapply-themes))
 
 
-(add-hook 'after-init-hook 'light)
+(add-hook 'after-init-hook 'dark)
 
 
 
