@@ -387,6 +387,7 @@ typical word processor."
 (load-file "~/.emacs.d/lisp/init-org-bullets.el")
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
 (provide 'init-org)
 ;;; init-org.el ends here

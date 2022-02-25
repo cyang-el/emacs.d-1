@@ -23,15 +23,14 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+  (setq custom-enabled-themes '(gruvbox-light-soft))
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(gruvbox))
+  (setq custom-enabled-themes '(gruvbox-dark-soft))
   (reapply-themes))
-
 
 (add-hook 'after-init-hook 'dark)
 
