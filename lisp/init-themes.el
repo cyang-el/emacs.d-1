@@ -53,6 +53,14 @@
       (not (display-graphic-p)))
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
 
+
+;; font size
+(set-face-attribute 'default nil :height 170)
+
+;; windows size
+(setq initial-frame-alist '
+      ((top . 1) (left . 40) (width . 170) (height . 50)))
+
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
