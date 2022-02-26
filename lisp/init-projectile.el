@@ -12,7 +12,7 @@
     (setq-default projectile-generic-command "rg --files --hidden"))
 
   (with-eval-after-load 'projectile
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+    (define-key projectile-mode-map (kbd "C-p") 'projectile-command-map))
 
   (maybe-require-package 'ibuffer-projectile))
 
