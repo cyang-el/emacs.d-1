@@ -17,7 +17,6 @@
       (load-theme theme)))
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
-
 ;; Toggle between light and dark
 
 (defun light ()
@@ -50,9 +49,8 @@
       (not (display-graphic-p)))
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
 
-
-;; font size
-(set-face-attribute 'default nil :height 170)
+;; font and size
+(set-face-attribute 'default nil :height 170 :font "Source Code Pro")
 
 ;; windows size
 (setq initial-frame-alist '
