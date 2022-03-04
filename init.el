@@ -151,6 +151,10 @@
 (require 'init-direnv)
 
 
+;; eglot
+(require-package 'eglot)
+(add-hook 'typescript-mode-hook 'eglot-ensure)
+
 
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook

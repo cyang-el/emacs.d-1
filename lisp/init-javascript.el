@@ -4,7 +4,6 @@
 
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
-(maybe-require-package 'typescript-mode)
 (maybe-require-package 'prettier-js)
 
 
@@ -104,7 +103,7 @@
 
 
 (when (maybe-require-package 'add-node-modules-path)
-  (dolist (mode '(typescript-mode js-mode js2-mode coffee-mode))
+  (dolist (mode '(js-mode js2-mode coffee-mode))
     (add-hook (derived-mode-hook-name mode) 'add-node-modules-path)))
 
 
