@@ -301,6 +301,32 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "C-<right>") 'forward-word)
 (global-set-key (kbd "C-<left>") 'backward-word)
 
+;; scrolling
+(defun window-half-height ()
+  (max 1 (/ (1- (window-height (selected-window))) 2)))
+
+(defun scroll-up-half ()
+  (interactive)
+  (scroll-up (window-half-height)))
+
+(defun scroll-down-half ()
+  (interactive)
+  (scroll-down (window-half-height)))
+
+(global-set-key (kbd "C-v") 'scroll-up-half)
+(global-set-key (kbd "C-b") 'scroll-down-half)
+
+(defun go-to-note ()
+  (interactive)
+  (find-file "~/workplace/note.org"))
+
+(defun go-home ()
+  (interactive)
+  (find-file "~/"))
+
+(defun go-to-work ()
+  (interactive)
+  (find-file "~/workplace"))
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
