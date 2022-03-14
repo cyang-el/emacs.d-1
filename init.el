@@ -151,6 +151,10 @@
 (require 'init-direnv)
 
 
+;;; Basic cloudformation setup
+(require-package 'cfn-mode)
+(add-auto-mode 'cfn-mode "\\.template\\'")
+
 ;; eglot
 (require-package 'eglot)
 (add-hook 'typescript-mode-hook 'eglot-ensure)
