@@ -157,6 +157,7 @@
 
 ;; eglot
 (require-package 'eglot)
+(require-package 'typescript-mode)
 (add-hook 'typescript-mode-hook 'eglot-ensure)
 
 
