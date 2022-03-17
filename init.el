@@ -158,9 +158,15 @@
 ;; eglot
 (require-package 'eglot)
 (require-package 'typescript-mode)
-(add-hook 'typescript-mode-hook 'eglot-ensure)
+;; (add-hook 'typescript-mode-hook 'eglot-ensure)
 
-
+;; lsp-mode
+(setq lsp-keymap-prefix "C-c l")
+(require-package 'lsp-mode)
+;;(require-package 'lsp-ui)
+;;(require-package 'company-mode)
+(add-hook 'typescript-mode-hook #'lsp)
+
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook
           (lambda ()
