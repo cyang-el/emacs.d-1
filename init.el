@@ -167,6 +167,17 @@
 ;;(require-package 'company-mode)
 (add-hook 'typescript-mode-hook #'lsp)
 
+;; java
+(add-hook 'java-mode-hook 'eglot-ensure)
+
+(defun bemol-project-find-function (dir)
+  "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
+  (let ((root (locate-dominating-file dir ".bemol")))
+    (and root (cons 'transient root))))
+
+(with-eval-after-load 'project
+  (add-to-list 'project-find-functions 'bemol-project-find-function))
+
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook
           (lambda ()
