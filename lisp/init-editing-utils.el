@@ -340,6 +340,8 @@ ORIG is the advised function, which is called with its ARGS."
       (process-send-string proc text)
       (process-send-eof proc))))
 
-(when (eq system-type 'darwin)
+(when (and
+       (string-match "^.*\.amazon\.com$" system-name)
+       (eq system-type 'darwin))
   (setq interprogram-cut-function 'paste-to-osx)
   (setq interprogram-paste-function 'copy-from-osx))

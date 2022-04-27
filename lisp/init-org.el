@@ -389,5 +389,10 @@ typical word processor."
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
+(when (and
+       (string-match "^.*\.amazon\.com$" system-name)
+       (eq system-type 'darwin))
+  (setq org-agenda-files '("~/workplace/note.org")))
+
 (provide 'init-org)
 ;;; init-org.el ends here
