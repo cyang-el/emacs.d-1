@@ -179,6 +179,9 @@
 (with-eval-after-load 'project
   (add-to-list 'project-find-functions 'bemol-project-find-function))
 
+;; imenu-list
+(require-package 'imenu-list)
+
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook
           (lambda ()
