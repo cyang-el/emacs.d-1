@@ -101,6 +101,7 @@
 (require 'init-ruby)
 (require 'init-rails)
 (require 'init-sql)
+(require 'init-elixir)
 (require 'init-ocaml)
 (require 'init-j)
 (require 'init-nim)

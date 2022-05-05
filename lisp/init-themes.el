@@ -6,6 +6,7 @@
 (require-package 'color-theme-sanityinc-tomorrow)
 (require-package 'gruvbox-theme)
 (require-package 'solarized-theme)
+(require-package 'monokai-theme)
 
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
@@ -25,14 +26,14 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(gruvbox-light-soft))
-  ;; (setq custom-enabled-themes '(solarized-light))
+  ;; (setq custom-enabled-themes '(gruvbox-light-soft))
+  (setq custom-enabled-themes '(solarized-light))
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(gruvbox-dark-soft))
+  (setq custom-enabled-themes '(monokai))
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
