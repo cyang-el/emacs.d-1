@@ -7,6 +7,7 @@
 (require-package 'gruvbox-theme)
 (require-package 'solarized-theme)
 (require-package 'monokai-theme)
+(require-package 'zenburn-theme)
 
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
@@ -28,12 +29,14 @@
   (interactive)
   ;; (setq custom-enabled-themes '(gruvbox-light-soft))
   (setq custom-enabled-themes '(solarized-light))
+  ;; (setq custom-enabled-themes '(zenburn))
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(monokai))
+  ;; (setq custom-enabled-themes '(monokai))
+  (setq custom-enabled-themes '(gruvbox-dark-hard))
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
