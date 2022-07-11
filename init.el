@@ -133,6 +133,14 @@
 (require 'init-ledger)
 ;; Extra packages which don't require any configuration
 
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook
+          (lambda()
+            (subword-mode)
+            (google-set-c-style)
+            (google-make-newline-indent)
+            (setq c-basic-offset 4)))
+
 (require-package 'sudo-edit)
 (require-package 'gnuplot)
 (require-package 'lua-mode)
