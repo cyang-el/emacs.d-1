@@ -177,7 +177,7 @@
 (add-hook 'typescript-mode-hook #'lsp)
 
 ;; java
-(add-hook 'java-mode-hook 'eglot-ensure)
+;; (add-hook 'java-mode-hook 'eglot-ensure)
 
 (defun bemol-project-find-function (dir)
   "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
