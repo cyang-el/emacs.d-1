@@ -316,20 +316,6 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "C-v") 'scroll-up-half)
 (global-set-key (kbd "C-b") 'scroll-down-half)
 
-(defun go-to-note ()
-  (interactive)
-  (find-file "~/workplace/note.org"))
-
-(defun go-home ()
-  (interactive)
-  (find-file "~/"))
-
-(defun go-to-work ()
-  (interactive)
-  (find-file "~/workplace"))
-
-(provide 'init-editing-utils)
-;;; init-editing-utils.el ends here
 
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
@@ -340,9 +326,7 @@ ORIG is the advised function, which is called with its ARGS."
       (process-send-string proc text)
       (process-send-eof proc))))
 
-(when (and
-       (string-match "^.*\.amazon\.com$" system-name)
-       (eq system-type 'darwin))
+(when (eq system-type 'darwin)
   (setq interprogram-cut-function 'paste-to-osx)
   (setq interprogram-paste-function 'copy-from-osx))
 
@@ -360,3 +344,6 @@ ORIG is the advised function, which is called with its ARGS."
       (save-selected-window
         (other-window 1)
         (switch-to-buffer (other-buffer))))))
+
+(provide 'init-editing-utils)
+;;; init-editing-utils.el ends here
