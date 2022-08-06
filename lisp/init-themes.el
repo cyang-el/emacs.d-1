@@ -27,9 +27,9 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(gruvbox-light))
+  ;; (setq custom-enabled-themes '(gruvbox-light))
   ;; (setq custom-enabled-themes '(solarized-light))
-  ;; (setq custom-enabled-themes '(zenburn))
+  (setq custom-enabled-themes '(zenburn))
   (reapply-themes))
 
 (defun dark ()
