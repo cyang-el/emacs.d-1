@@ -2,15 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (maybe-require-package 'rust-mode)
-  (when (maybe-require-package 'racer)
-    (add-hook 'rust-mode-hook #'racer-mode))
-  (when (maybe-require-package 'company)
-    (add-hook 'racer-mode-hook #'company-mode)))
-
-(when (maybe-require-package 'flycheck-rust)
-  (with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+(require-package 'rustic)
+(require-package 'company)
+(setq rustic-analyzer-command '("~/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rust-analyzer"))
+(setq rustic-lsp-server 'rust-analyzer)
+(setq rustic-lsp-client 'lsp-mode)
 
 (provide 'init-rust)
 ;;; init-rust.el ends here

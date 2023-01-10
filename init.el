@@ -168,6 +168,7 @@
 ;; eglot
 (require-package 'eglot)
 (require-package 'typescript-mode)
+;; (setq-default typescript-indent-level 2)
 ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
 
 ;; lsp-mode
@@ -179,14 +180,20 @@
 
 ;; java
 ;; (add-hook 'java-mode-hook 'eglot-ensure)
+(require-package 'treemacs)
+(require-package 'lsp-treemacs)
+(require-package 'lsp-java)
+(require-package 'company)
+(require-package 'lsp-ui)
+(add-hook 'java-mode-hook #'lsp)
 
-(defun bemol-project-find-function (dir)
-  "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
-  (let ((root (locate-dominating-file dir ".bemol")))
-    (and root (cons 'transient root))))
+;; (defun bemol-project-find-function (dir)
+;;   "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
+;;   (let ((root (locate-dominating-file dir ".bemol")))
+;;     (and root (cons 'transient root))))
 
-(with-eval-after-load 'project
-  (add-to-list 'project-find-functions 'bemol-project-find-function))
+;; (with-eval-after-load 'project
+;;   (add-to-list 'project-find-functions 'bemol-project-find-function))
 
 ;; imenu-list
 (require-package 'imenu-list)

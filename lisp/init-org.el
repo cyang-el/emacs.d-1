@@ -322,8 +322,6 @@ typical word processor."
 (setq org-archive-mark-done nil)
 (setq org-archive-location "%s_archive::* Archive")
 
-
-
 
 
 (require-package 'org-pomodoro)
@@ -352,9 +350,14 @@ typical word processor."
 ;;                   (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
 ;;                 (insert (match-string 0))))))
 
+(defun org-time-stamp-inactive-now (&optional arg)
+  "Same as org-time-stamp-inactive, but with two universal arguement by defualt."
+  (interactive "P")
+  (org-time-stamp-inactive '(16)))
 
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
+  (define-key org-mode-map (kbd "C-c t") 'org-time-stamp-inactive-now)
   (when *is-a-mac*
     (define-key org-mode-map (kbd "M-h") nil)
     (define-key org-mode-map (kbd "C-c g") 'grab-mac-link)))
