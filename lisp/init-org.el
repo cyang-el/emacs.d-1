@@ -358,6 +358,7 @@ typical word processor."
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
   (define-key org-mode-map (kbd "C-c t") 'org-time-stamp-inactive-now)
+  (define-key org-mode-map (kbd "C-c w") 'org-cut-subtree)
   (when *is-a-mac*
     (define-key org-mode-map (kbd "M-h") nil)
     (define-key org-mode-map (kbd "C-c g") 'grab-mac-link)))
