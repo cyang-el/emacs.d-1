@@ -35,8 +35,8 @@
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  ;; (setq custom-enabled-themes '(monokai))
-  (setq custom-enabled-themes '(gruvbox-dark-hard))
+  (setq custom-enabled-themes '(monokai))
+  ;; (setq custom-enabled-themes '(gruvbox-dark-hard))
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 

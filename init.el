@@ -168,18 +168,20 @@
 ;; eglot
 (require-package 'eglot)
 (require-package 'typescript-mode)
-;; (setq-default typescript-indent-level 2)
-;; (add-hook 'typescript-mode-hook 'eglot-ensure)
+
+(add-hook 'typescript-mode-hook 'eglot-ensure)
+(setq-default typescript-indent-level 2)
 
 ;; lsp-mode
 (setq lsp-keymap-prefix "C-c l")
 (require-package 'lsp-mode)
 ;;(require-package 'lsp-ui)
 ;;(require-package 'company-mode)
-(add-hook 'typescript-mode-hook #'lsp)
+;; (add-hook 'typescript-mode-hook #'lsp)
 
 ;; java
 ;; (add-hook 'java-mode-hook 'eglot-ensure)
+
 (require-package 'treemacs)
 (require-package 'lsp-treemacs)
 (require-package 'lsp-java)
@@ -194,6 +196,9 @@
 
 ;; (with-eval-after-load 'project
 ;;   (add-to-list 'project-find-functions 'bemol-project-find-function))
+
+;; kotlin
+(require-package 'kotlin-mode)
 
 ;; imenu-list
 (require-package 'imenu-list)
