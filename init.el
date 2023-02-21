@@ -159,7 +159,7 @@
   (add-hook 'after-init-hook 'global-eldoc-mode))
 
 (require 'init-direnv)
-
+(require-package 'json-navigator)
 
 ;;; Basic cloudformation setup
 (require-package 'cfn-mode)
