@@ -18,8 +18,16 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
-(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+(defconst *spell-check-support-enabled* t) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
+
+
+;; scratch buffer
+
+(setq initial-major-mode 'text-mode)
+
+(setq initial-scratch-message
+      (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
 
 
 ;; Adjust garbage collection thresholds during startup, and thereafter
@@ -98,7 +106,7 @@
 (require 'init-haskell)
 (require 'init-elm)
 (require 'init-purescript)
-(require 'init-ruby)
+;; (require 'init-ruby)
 (require 'init-rails)
 (require 'init-sql)
 (require 'init-elixir)
@@ -171,6 +179,10 @@
 
 (add-hook 'typescript-mode-hook 'eglot-ensure)
 (setq-default typescript-indent-level 2)
+
+;; ruby
+(require-package 'ruby-mode)
+(add-hook 'ruby-mode-hook 'eglot-ensure)
 
 ;; lsp-mode
 (setq lsp-keymap-prefix "C-c l")
