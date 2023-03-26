@@ -180,8 +180,11 @@
 (add-hook 'typescript-mode-hook 'eglot-ensure)
 (setq-default typescript-indent-level 2)
 
+;; go
+(require-package 'go-mode)
+(add-hook 'go-mode-hook 'eglot-ensure)
+
 ;; ruby
-(require-package 'ruby-mode)
 (add-hook 'ruby-mode-hook 'eglot-ensure)
 
 ;; lsp-mode
