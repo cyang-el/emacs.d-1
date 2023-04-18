@@ -205,14 +205,19 @@
 ;;(require-package 'company-mode)
 ;; (add-hook 'typescript-mode-hook #'lsp)
 
+;; scala
+(require-package 'scala-mode)
+(require-package 'sbt-mode)
+(require-package 'lsp-metals)
+(require-package 'lsp-ui)
+(add-hook 'scala-mode-hook #'lsp)
+
 ;; java
 ;; (add-hook 'java-mode-hook 'eglot-ensure)
-
 (require-package 'treemacs)
 (require-package 'lsp-treemacs)
 (require-package 'lsp-java)
 (require-package 'company)
-(require-package 'lsp-ui)
 (add-hook 'java-mode-hook #'lsp)
 
 ;; (defun bemol-project-find-function (dir)
