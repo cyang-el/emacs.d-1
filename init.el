@@ -185,6 +185,10 @@
 (require-package 'go-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
+;; zig
+(require-package 'zig-mode)
+(add-hook 'zig-mode-hook 'eglot-ensure)
+
 ;; c#
 (require-package 'omnisharp)
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
