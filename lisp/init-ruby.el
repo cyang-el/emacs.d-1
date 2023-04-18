@@ -67,7 +67,9 @@
 ;;; ri support
 (require-package 'yari)
 (defalias 'ri 'yari)
-
+
+;;; eglot support
+(add-hook 'ruby-mode-hook 'eglot-ensure)
 
 
 (require-package 'bundler)

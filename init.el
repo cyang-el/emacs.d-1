@@ -185,8 +185,14 @@
 (require-package 'go-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
-;; ruby
-(add-hook 'ruby-mode-hook 'eglot-ensure)
+;; c#
+(require-package 'omnisharp)
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(eval-after-load
+    'company
+  '(add-to-list 'company-backends 'company-omnisharp))
+(add-hook 'csharp-mode-hook #'company-mode)
+(add-hook 'csharp-mode-hook #'flycheck-mode)
 
 ;; lsp-mode
 (setq lsp-keymap-prefix "C-c l")
