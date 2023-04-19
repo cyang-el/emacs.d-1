@@ -183,7 +183,8 @@
 
 ;; go
 (require-package 'go-mode)
-(add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook #'lsp)
+;; (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; zig
 (require-package 'zig-mode)
