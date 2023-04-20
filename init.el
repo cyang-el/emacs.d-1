@@ -178,7 +178,6 @@
 (setq lsp-keymap-prefix "C-c l")
 (require-package 'lsp-mode)
 (require-package 'lsp-ui)
-(require-package 'company-mode)
 
 ;; eglot
 (require-package 'eglot)
