@@ -174,10 +174,16 @@
 (require-package 'cfn-mode)
 (add-auto-mode 'cfn-mode "\\.template\\'")
 
+;; lsp-mode
+(setq lsp-keymap-prefix "C-c l")
+(require-package 'lsp-mode)
+(require-package 'lsp-ui)
+(require-package 'company-mode)
+
 ;; eglot
 (require-package 'eglot)
+
 (require-package 'typescript-mode)
-
 (add-hook 'typescript-mode-hook 'eglot-ensure)
 (setq-default typescript-indent-level 2)
 
@@ -199,18 +205,10 @@
 (add-hook 'csharp-mode-hook #'company-mode)
 (add-hook 'csharp-mode-hook #'flycheck-mode)
 
-;; lsp-mode
-(setq lsp-keymap-prefix "C-c l")
-(require-package 'lsp-mode)
-;;(require-package 'lsp-ui)
-;;(require-package 'company-mode)
-;; (add-hook 'typescript-mode-hook #'lsp)
-
 ;; scala
 (require-package 'scala-mode)
 (require-package 'sbt-mode)
 (require-package 'lsp-metals)
-(require-package 'lsp-ui)
 (add-hook 'scala-mode-hook #'lsp)
 
 ;; java
