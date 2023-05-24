@@ -16,6 +16,9 @@
 
 (require-package 'pip-requirements)
 
+;;; https://github.com/jorgenschaefer/pyvenv
+(require-package 'pyvenv)
+
 (when (maybe-require-package 'anaconda-mode)
   (with-eval-after-load 'python
     ;; Anaconda doesn't work on remote servers without some work, so
