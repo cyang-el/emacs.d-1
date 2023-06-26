@@ -187,7 +187,8 @@
 
 ;; typescript
 (require-package 'typescript-mode)
-(add-hook 'typescript-mode-hook 'eglot-ensure)
+;; (add-hook 'typescript-mode-hook 'eglot-ensure)
+(add-hook 'typescript-mode-hook 'lsp)
 (setq-default typescript-indent-level 2)
 
 ;; go
@@ -198,6 +199,9 @@
 ;; zig
 (require-package 'zig-mode)
 (add-hook 'zig-mode-hook 'eglot-ensure)
+
+;; raku
+(require-package 'raku-mode)
 
 ;; c#
 (require-package 'omnisharp)
