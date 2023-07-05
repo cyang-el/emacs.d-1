@@ -187,9 +187,9 @@
 
 ;; typescript
 (require-package 'typescript-mode)
-;; (add-hook 'typescript-mode-hook 'eglot-ensure)
-(add-hook 'typescript-mode-hook 'lsp)
-(setq-default typescript-indent-level 2)
+(add-hook 'typescript-mode-hook 'eglot-ensure)
+;; (add-hook 'typescript-mode-hook 'lsp)
+(setq-default typescript-indent-level 4)
 
 ;; go
 (require-package 'go-mode)
@@ -236,6 +236,15 @@
 
 ;; kotlin
 (require-package 'kotlin-mode)
+(add-hook 'kotlin-mode-hook #'lsp)
+
+;; plantuml
+;; (require-package 'plantuml-mode)
+
+;; mermaid js
+;; npm install -g @mermaid-js/mermaid-cli
+(require-package 'mermaid-mode)
+(add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
 
 ;; imenu-list
 (require-package 'imenu-list)
