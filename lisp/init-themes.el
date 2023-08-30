@@ -27,7 +27,7 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  ;; (setq custom-enabled-themes '(gruvbox-light))
+  ;; (setq custom-enabled-themes '(gruvbox-light-meduim))
   (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(zenburn))
   (reapply-themes))
@@ -40,7 +40,7 @@
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
-(add-hook 'after-init-hook 'light)
+(add-hook 'after-init-hook 'dark)
 
 
 
@@ -59,7 +59,7 @@
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
 
 ;; font and size
-(set-face-attribute 'default nil :height 170 :font "Source Code Pro")
+(set-face-attribute 'default nil :height 160 :font "Source Code Pro")
 
 ;; windows size
 (setq initial-frame-alist '

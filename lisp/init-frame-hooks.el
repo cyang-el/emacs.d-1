@@ -23,8 +23,9 @@ Selectively runs either `after-make-console-frame-hooks' or
 
 (add-hook 'after-init-hook
           (lambda () (when sanityinc/initial-frame
-                  (run-after-make-frame-hooks sanityinc/initial-frame))))
+                       (run-after-make-frame-hooks sanityinc/initial-frame))))
 
+;; (tab-bar-mode 1)
 
 (provide 'init-frame-hooks)
 ;;; init-frame-hooks.el ends here
