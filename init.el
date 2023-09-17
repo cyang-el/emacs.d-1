@@ -170,6 +170,10 @@
 (require 'init-direnv)
 (require-package 'json-navigator)
 
+;; nyan-mode
+(require-package 'nyan-mode)
+(nyan-mode t)
+
 ;;; Basic cloudformation setup
 (require-package 'cfn-mode)
 (add-auto-mode 'cfn-mode "\\.template\\'")
@@ -193,8 +197,8 @@
 
 ;; go
 (require-package 'go-mode)
-;; (add-hook 'go-mode-hook #'lsp)
-(add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook #'lsp)
+;; (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; zig
 (require-package 'zig-mode)
