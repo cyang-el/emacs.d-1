@@ -253,21 +253,21 @@
 ;; imenu-list
 (require-package 'imenu-list)
 
-;; https://depp.brause.cc/eyebrowse/
-;; C-c C-w
-(require-package 'eyebrowse)
-(eyebrowse-mode t)
-
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
             (unless (server-running-p)
               (server-start))))
-
+
 ;; Variables configured via the interactive 'customize' interface
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; https://depp.brause.cc/eyebrowse/
+(require-package 'eyebrowse)
+(eyebrowse-mode t)
+
 
 ;; Locales (setting them earlier in this file doesn't work in X)
 (require 'init-locales)
