@@ -20,7 +20,7 @@
 
 (defconst *spell-check-support-enabled* t) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
-
+(add-to-list 'image-types 'svg)
 
 ;; scratch buffer
 
