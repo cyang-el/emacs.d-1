@@ -40,8 +40,7 @@
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
-(add-hook 'after-init-hook 'light)
-
+(add-hook 'after-init-hook 'dark)
 
 
 (when (maybe-require-package 'dimmer)
@@ -59,7 +58,7 @@
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
 
 ;; font and size
-(set-face-attribute 'default nil :height 160 :font "Source Code Pro")
+(set-face-attribute 'default nil :height 130 :font "Source Code Pro")
 
 ;; windows size
 (setq initial-frame-alist '
