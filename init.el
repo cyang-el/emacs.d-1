@@ -207,6 +207,9 @@
 ;; raku
 (require-package 'raku-mode)
 
+;; f#
+(require-package 'fsharp-mode)
+
 ;; c#
 ;; (require-package 'omnisharp)
 ;; (add-hook 'csharp-mode-hook 'omnisharp-mode)

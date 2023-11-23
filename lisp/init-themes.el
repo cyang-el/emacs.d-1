@@ -58,7 +58,7 @@
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
 
 ;; font and size
-(set-face-attribute 'default nil :height 130 :font "Source Code Pro")
+(set-face-attribute 'default nil :height 120 :font "Source Code Pro")
 
 ;; windows size
 (setq initial-frame-alist '
