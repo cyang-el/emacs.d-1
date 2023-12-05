@@ -40,7 +40,7 @@
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
-(add-hook 'after-init-hook 'dark)
+(add-hook 'after-init-hook 'light)
 
 
 (when (maybe-require-package 'dimmer)
