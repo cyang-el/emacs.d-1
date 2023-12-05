@@ -315,9 +315,8 @@ ORIG is the advised function, which is called with its ARGS."
   (interactive)
   (scroll-down (window-half-height)))
 
-(global-set-key (kbd "C-v") 'scroll-up-half)
-(global-set-key (kbd "C-b") 'scroll-down-half)
-
+(global-set-key (kbd "<C-down>") 'scroll-up-half)
+(global-set-key (kbd "<C-up>") 'scroll-down-half)
 
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
