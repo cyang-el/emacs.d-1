@@ -210,6 +210,11 @@
 ;; f#
 (require-package 'fsharp-mode)
 
+;; chatgpt
+(require-package 'gptel)
+(setq gptel-api-key "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")
+(setq gptel-model "gpt-3.5-turbo")
+
 ;; c#
 ;; (require-package 'omnisharp)
 ;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
