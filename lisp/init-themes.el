@@ -59,7 +59,7 @@
 
 ;; font and size
 ;; (set-face-attribute 'default nil :height 100 :font "Source Code Pro")
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 100)
 
 ;; windows size
 (setq initial-frame-alist '
