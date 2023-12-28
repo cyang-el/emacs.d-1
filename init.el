@@ -174,6 +174,9 @@
 (require-package 'nyan-mode)
 (nyan-mode t)
 
+;; koka
+(require 'koka-mode)
+
 ;;; Basic cloudformation setup
 (require-package 'cfn-mode)
 (add-auto-mode 'cfn-mode "\\.template\\'")
