@@ -178,6 +178,7 @@
 (require 'koka-mode)
 
 ;; tla+ https://github.com/mrc/tla-tools
+(require-package 'polymode)
 (require 'tla-pcal-mode)
 (require 'tla-tools)
 
