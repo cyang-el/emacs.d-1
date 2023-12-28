@@ -177,6 +177,10 @@
 ;; koka
 (require 'koka-mode)
 
+;; tla+ https://github.com/mrc/tla-tools
+(require 'tla-pcal-mode)
+(require 'tla-tools)
+
 ;;; Basic cloudformation setup
 (require-package 'cfn-mode)
 (add-auto-mode 'cfn-mode "\\.template\\'")
