@@ -194,6 +194,9 @@
 ;; eglot
 (require-package 'eglot)
 
+;; hare
+(require 'hare-mode)
+
 ;; janet
 (require-package 'janet-mode)
 
