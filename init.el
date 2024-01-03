@@ -236,14 +236,13 @@
 ;; (add-hook 'csharp-mode-hook #'flycheck-mode)
 
 ;; scala
-;; (require-package 'scala-mode)
-;; (require-package 'sbt-mode)
-;; (require-package 'lsp-metals)
-;; (add-hook 'scala-mode-hook #'lsp)
-(add-hook 'java-mode-hook 'eglot-ensure)
+(require-package 'scala-mode)
+(require-package 'sbt-mode)
+(require-package 'lsp-metals)
+(add-hook 'scala-mode-hook #'lsp)
 
 ;; java
-(add-hook 'java-mode-hook 'eglot-ensure)
+;;(add-hook 'java-mode-hook 'eglot-ensure)
 ;; (require-package 'treemacs)
 ;; (require-package 'lsp-treemacs)
 ;; (require-package 'lsp-java)
