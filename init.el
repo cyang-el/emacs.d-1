@@ -236,10 +236,11 @@
 ;; (add-hook 'csharp-mode-hook #'flycheck-mode)
 
 ;; scala
-(require-package 'scala-mode)
-(require-package 'sbt-mode)
-(require-package 'lsp-metals)
-(add-hook 'scala-mode-hook #'lsp)
+;; (require-package 'scala-mode)
+;; (require-package 'sbt-mode)
+;; (require-package 'lsp-metals)
+;; (add-hook 'scala-mode-hook #'lsp)
+(add-hook 'java-mode-hook 'eglot-ensure)
 
 ;; java
 (add-hook 'java-mode-hook 'eglot-ensure)
@@ -259,7 +260,7 @@
 
 ;; kotlin
 (require-package 'kotlin-mode)
-(add-hook 'kotlin-mode-hook #'lsp)
+;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
 ;; (require-package 'plantuml-mode)
