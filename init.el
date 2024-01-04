@@ -240,18 +240,18 @@
 
 ;; (add-hook 'scala-mode-hook 'eglot-ensure)
 
-;; (require-package 'sbt-mode)
-;; (require-package 'lsp-metals)
-;; (add-hook 'scala-mode-hook #'lsp)
+(require-package 'sbt-mode)
+(require-package 'lsp-metals)
+(add-hook 'scala-mode-hook #'lsp)
 
 ;; java
 ;;(add-hook 'java-mode-hook 'eglot-ensure)
-;; (require-package 'treemacs)
-;; (require-package 'lsp-treemacs)
-;; (require-package 'lsp-java)
-;; (require-package 'company)
-;; (add-hook 'java-mode-hook #'lsp)
-
+(require-package 'treemacs)
+(require-package 'lsp-treemacs)
+(require-package 'lsp-java)
+(require-package 'company)
+(add-hook 'java-mode-hook #'lsp)
+;;
 ;; (defun bemol-project-find-function (dir)
 ;;   "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
 ;;   (let ((root (locate-dominating-file dir ".bemol")))
