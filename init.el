@@ -237,9 +237,12 @@
 
 ;; scala
 (require-package 'scala-mode)
-(require-package 'sbt-mode)
-(require-package 'lsp-metals)
-(add-hook 'scala-mode-hook #'lsp)
+
+;; (add-hook 'scala-mode-hook 'eglot-ensure)
+
+;; (require-package 'sbt-mode)
+;; (require-package 'lsp-metals)
+;; (add-hook 'scala-mode-hook #'lsp)
 
 ;; java
 ;;(add-hook 'java-mode-hook 'eglot-ensure)
