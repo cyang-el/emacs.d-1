@@ -202,8 +202,8 @@
 
 ;; typescript
 (require-package 'typescript-mode)
-(add-hook 'typescript-mode-hook 'eglot-ensure)
-;; (add-hook 'typescript-mode-hook 'lsp)
+;; (add-hook 'typescript-mode-hook 'eglot-ensure)
+(add-hook 'typescript-mode-hook 'lsp)
 (setq-default typescript-indent-level 4)
 
 ;; go
