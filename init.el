@@ -189,6 +189,8 @@
 ;; lsp-mode
 (setq lsp-keymap-prefix "C-c l")
 (require-package 'lsp-mode)
+(setq lsp-prefer-flymake nil)
+(setq lsp-keep-workspace-alive nil)
 (require-package 'lsp-ui)
 
 ;; eglot
@@ -236,13 +238,29 @@
 ;; (add-hook 'csharp-mode-hook #'flycheck-mode)
 
 ;; scala
+;; Enable scala-mode for highlighting, indentation and motion commands
 (require-package 'scala-mode)
+(use-package scala-mode
+  :interpreter ("scala" . scala-mode))
 
-;; (add-hook 'scala-mode-hook 'eglot-ensure)
 
 (require-package 'sbt-mode)
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map)
+  ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+  (setq sbt:program-options '("-Dsbt.supershell=false")))
+
+
 (require-package 'lsp-metals)
 (add-hook 'scala-mode-hook #'lsp)
+;; (add-hook 'scala-mode-hook 'eglot-ensure)
 
 ;; java
 ;;(add-hook 'java-mode-hook 'eglot-ensure)
