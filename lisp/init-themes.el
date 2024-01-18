@@ -63,7 +63,7 @@
 
 ;; windows size
 (setq initial-frame-alist '
-      ((top . 1) (left . 40) (width . 159) (height . 48)))
+      ((top . 0) (left . 0) (width . 159) (height . 50)))
 
 
 (provide 'init-themes)

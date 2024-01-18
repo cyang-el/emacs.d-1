@@ -210,8 +210,8 @@
 
 ;; go
 (require-package 'go-mode)
-(add-hook 'go-mode-hook #'lsp)
-;; (add-hook 'go-mode-hook 'eglot-ensure)
+;; (add-hook 'go-mode-hook #'lsp)
+(add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; zig
 (require-package 'zig-mode)
@@ -258,9 +258,9 @@
   (setq sbt:program-options '("-Dsbt.supershell=false")))
 
 
-(require-package 'lsp-metals)
-(add-hook 'scala-mode-hook #'lsp)
-;; (add-hook 'scala-mode-hook 'eglot-ensure)
+;; (require-package 'lsp-metals)
+;;(add-hook 'scala-mode-hook #'lsp)
+(add-hook 'scala-mode-hook 'eglot-ensure)
 
 ;; java
 ;;(add-hook 'java-mode-hook 'eglot-ensure)
