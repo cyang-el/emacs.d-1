@@ -280,6 +280,7 @@
 
 ;; kotlin
 (require-package 'kotlin-mode)
+(add-hook 'kotlin-mode-hook 'eglot-ensure)
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
