@@ -63,14 +63,14 @@
 (defun my-big-font ()
   "My big font."
   (interactive)
-  (set-face-attribute 'default nil :height 180))
+  (set-face-attribute 'default nil :height 170))
 
 (defun my-small-font ()
   "My small font."
   (interactive)
   (set-face-attribute 'default nil :height 130))
 
-(add-hook 'after-init-hook 'my-small-font)
+(add-hook 'after-init-hook 'my-big-font)
 
 ;; windows size
 (setq initial-frame-alist '
