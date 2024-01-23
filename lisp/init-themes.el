@@ -40,7 +40,7 @@
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
-(add-hook 'after-init-hook 'dark)
+(add-hook 'after-init-hook 'light)
 
 
 (when (maybe-require-package 'dimmer)
@@ -59,7 +59,18 @@
 
 ;; font and size
 ;; (set-face-attribute 'default nil :height 100 :font "Source Code Pro")
-(set-face-attribute 'default nil :height 180)
+
+(defun my-big-font ()
+  "My big font."
+  (interactive)
+  (set-face-attribute 'default nil :height 180))
+
+(defun my-small-font ()
+  "My small font."
+  (interactive)
+  (set-face-attribute 'default nil :height 130))
+
+(add-hook 'after-init-hook 'my-small-font)
 
 ;; windows size
 (setq initial-frame-alist '
