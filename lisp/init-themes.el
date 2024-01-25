@@ -8,7 +8,9 @@
 (require-package 'solarized-theme)
 (require-package 'monokai-theme)
 (require-package 'zenburn-theme)
-
+(require-package 'tao-theme)
+(require-package 'one-themes)
+(require-package 'anti-zenburn-theme)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
 ;; first-time startup on Emacs > 26.3.
@@ -27,9 +29,12 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(gruvbox-light-medium))
+  ;; (setq custom-enabled-themes '(gruvbox-light-medium))
   ;; (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(zenburn))
+  (setq custom-enabled-themes '(anti-zenburn))
+  ;; (setq custom-enabled-themes '(tao-yang))
+  ;; (setq custom-enabled-themes '(one-light))
   (reapply-themes))
 
 (defun dark ()
