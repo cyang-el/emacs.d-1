@@ -82,6 +82,8 @@
 (setq initial-frame-alist '
       ((top . 0) (left . 0) (width . 159) (height . 50)))
 
+;; cursor
+(setf cursor-type 'box)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
