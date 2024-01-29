@@ -175,6 +175,10 @@
 (require-package 'nyan-mode)
 (nyan-mode t)
 
+;; rmsbolt
+;; https://gitlab.com/jgkamat/rmsbolt
+(require-package 'rmsbolt)
+
 ;; koka
 (require 'koka-mode)
 
@@ -196,6 +200,9 @@
 
 ;; eglot
 (require-package 'eglot)
+
+;; c++, using clangd
+(add-hook 'c++-mode-hook 'eglot-ensure)
 
 ;; hare
 (require 'hare-mode)
