@@ -167,6 +167,7 @@
 (when (fboundp 'global-eldoc-mode)
   (add-hook 'after-init-hook 'global-eldoc-mode))
 
+(require-package 'direnv)
 (require 'init-direnv)
 (require-package 'json-navigator)
 
