@@ -204,6 +204,9 @@
 ;; c++, using clangd
 (add-hook 'c++-mode-hook 'eglot-ensure)
 
+;; c, using clangd
+(add-hook 'c-mode-hook 'eglot-ensure)
+
 ;; hare
 (require 'hare-mode)
 
