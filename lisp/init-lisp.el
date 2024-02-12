@@ -271,8 +271,6 @@ there is no current file, eval the current buffer."
   (with-eval-after-load 'flycheck
     (with-eval-after-load 'elisp-mode
       (flycheck-package-setup))))
-
-
 
 ;; ERT
 (with-eval-after-load 'ert

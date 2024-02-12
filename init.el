@@ -249,11 +249,18 @@
 ;; (add-hook 'csharp-mode-hook #'flycheck-mode)
 
 ;; scala
-;; Enable scala-mode for highlighting, indentation and motion commands
+(setq flycheck-disabled-checkers '(scala scala-scalastyle))
+
 (require-package 'scala-mode)
 (use-package scala-mode
-  :interpreter ("scala" . scala-mode))
+  :mode "\\.s\\(cala\\|bt\\)$"
+  :config
+  (load-file "~/.emacs.d/lisp/ob-scala.el"))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(; likely other languages here
+   (scala . t)))
 
 (require-package 'sbt-mode)
 (use-package sbt-mode
@@ -268,9 +275,6 @@
   ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
   (setq sbt:program-options '("-Dsbt.supershell=false")))
 
-
-;; (require-package 'lsp-metals)
-;;(add-hook 'scala-mode-hook #'lsp)
 (add-hook 'scala-mode-hook 'eglot-ensure)
 
 ;; java
