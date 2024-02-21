@@ -54,9 +54,9 @@
 (require 'init-preload-local nil t)
 
 ;; Load configs for specific features and modes
-(require-package 'diminish)
+(maybe-require-package 'diminish)
 (maybe-require-package 'scratch)
-(require-package 'command-log-mode)
+(maybe-require-package 'command-log-mode)
 
 (require 'init-frame-hooks)
 (require 'init-xterm)
@@ -150,13 +150,13 @@
             (google-make-newline-indent)
             (setq c-basic-offset 4)))
 
-(require-package 'sudo-edit)
-(require-package 'gnuplot)
-(require-package 'lua-mode)
-(require-package 'htmlize)
-(require-package 'xterm-color)
+(maybe-require-package 'sudo-edit)
+(maybe-require-package 'gnuplot)
+(maybe-require-package 'lua-mode)
+(maybe-require-package 'htmlize)
+(maybe-require-package 'xterm-color)
 (when *is-a-mac*
-  (require-package 'osx-location))
+  (maybe-require-package 'osx-location))
 (maybe-require-package 'dotenv-mode)
 (maybe-require-package 'shfmt)
 
@@ -167,80 +167,80 @@
 (when (fboundp 'global-eldoc-mode)
   (add-hook 'after-init-hook 'global-eldoc-mode))
 
-(require-package 'direnv)
+(maybe-require-package 'direnv)
 (require 'init-direnv)
-(require-package 'json-navigator)
+(maybe-require-package 'json-navigator)
 
 ;; nyan-mode
-(require-package 'nyan-mode)
+(maybe-require-package 'nyan-mode)
 (nyan-mode t)
 
 ;; rmsbolt
 ;; https://gitlab.com/jgkamat/rmsbolt
-(require-package 'rmsbolt)
+(maybe-require-package 'rmsbolt)
 
 ;; koka
 (require 'koka-mode)
 
 ;; tla+ https://github.com/mrc/tla-tools
-(require-package 'polymode)
+(maybe-require-package 'polymode)
 (require 'tla-pcal-mode)
 (require 'tla-tools)
 
 ;;; Basic cloudformation setup
-(require-package 'cfn-mode)
+(maybe-require-package 'cfn-mode)
 (add-auto-mode 'cfn-mode "\\.template\\'")
 
 ;; lsp-mode
 (setq lsp-keymap-prefix "C-c l")
-(require-package 'lsp-mode)
+(maybe-require-package 'lsp-mode)
 (setq lsp-prefer-flymake nil)
 (setq lsp-keep-workspace-alive nil)
-(require-package 'lsp-ui)
+(maybe-require-package 'lsp-ui)
 
 ;; eglot
-(require-package 'eglot)
+(maybe-require-package 'eglot)
 
 ;; c++, using ccls
-;; (add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
 
 ;; c, using clangd
-;; (add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c-mode-hook 'eglot-ensure)
 
 ;; hare
 (require 'hare-mode)
 
 ;; janet
-(require-package 'janet-mode)
+(maybe-require-package 'janet-mode)
 
 ;; typescript
-(require-package 'typescript-mode)
+(maybe-require-package 'typescript-mode)
 ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
 (add-hook 'typescript-mode-hook 'lsp)
 (setq-default typescript-indent-level 4)
 
 ;; go
-(require-package 'go-mode)
+(maybe-require-package 'go-mode)
 ;; (add-hook 'go-mode-hook #'lsp)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; zig
-(require-package 'zig-mode)
+(maybe-require-package 'zig-mode)
 (add-hook 'zig-mode-hook 'eglot-ensure)
 
 ;; raku
-(require-package 'raku-mode)
+(maybe-require-package 'raku-mode)
 
 ;; f#
-(require-package 'fsharp-mode)
+(maybe-require-package 'fsharp-mode)
 
 ;; chatgpt
-(require-package 'gptel)
+(maybe-require-package 'gptel)
 ;; (setq gptel-api-key "")
 ;; (setq gptel-model "gpt-3.5-turbo")
 
 ;; c#
-;; (require-package 'omnisharp)
+;; (maybe-require-package 'omnisharp)
 ;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
 ;; (eval-after-load
 ;;     'company
@@ -251,7 +251,7 @@
 ;; scala
 (setq flycheck-disabled-checkers '(scala scala-scalastyle))
 
-(require-package 'scala-mode)
+(maybe-require-package 'scala-mode)
 (use-package scala-mode
   :mode "\\.s\\(cala\\|bt\\)$"
   :config
@@ -262,7 +262,7 @@
  '(; likely other languages here
    (scala . t)))
 
-(require-package 'sbt-mode)
+(maybe-require-package 'sbt-mode)
 (use-package sbt-mode
   :commands sbt-start sbt-command
   :config
@@ -279,10 +279,10 @@
 
 ;; java
 ;;(add-hook 'java-mode-hook 'eglot-ensure)
-(require-package 'treemacs)
-(require-package 'lsp-treemacs)
-(require-package 'lsp-java)
-(require-package 'company)
+(maybe-require-package 'treemacs)
+(maybe-require-package 'lsp-treemacs)
+(maybe-require-package 'lsp-java)
+(maybe-require-package 'company)
 (add-hook 'java-mode-hook #'lsp)
 ;;
 ;; (defun bemol-project-find-function (dir)
@@ -294,20 +294,20 @@
 ;;   (add-to-list 'project-find-functions 'bemol-project-find-function))
 
 ;; kotlin
-(require-package 'kotlin-mode)
+(maybe-require-package 'kotlin-mode)
 (add-hook 'kotlin-mode-hook 'eglot-ensure)
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
-;; (require-package 'plantuml-mode)
+;; (maybe-require-package 'plantuml-mode)
 
 ;; mermaid js
 ;; npm install -g @mermaid-js/mermaid-cli
-(require-package 'mermaid-mode)
+(maybe-require-package 'mermaid-mode)
 (add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
 
 ;; imenu-list
-(require-package 'imenu-list)
+(maybe-require-package 'imenu-list)
 
 ;; Allow access from emacsclient
 (add-hook 'after-init-hook
@@ -321,7 +321,7 @@
   (load custom-file))
 
 ;; https://depp.brause.cc/eyebrowse/
-(require-package 'eyebrowse)
+(maybe-require-package 'eyebrowse)
 (eyebrowse-mode t)
 
 
