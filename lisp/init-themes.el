@@ -40,13 +40,13 @@
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(monokai))
+  ;; (setq custom-enabled-themes '(monokai))
   ;; (setq custom-enabled-themes '(tao-yin))
-  ;; (setq custom-enabled-themes '(gruvbox-dark-hard))
+  (setq custom-enabled-themes '(gruvbox-dark-soft))
   ;; (setq custom-enabled-themes '(solarized-dark))
   (reapply-themes))
 
-(add-hook 'after-init-hook 'light)
+(add-hook 'after-init-hook 'dark)
 
 
 (when (maybe-require-package 'dimmer)
