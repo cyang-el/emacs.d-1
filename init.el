@@ -277,12 +277,12 @@
 (add-hook 'scala-mode-hook 'eglot-ensure)
 
 ;; java
-;;(add-hook 'java-mode-hook 'eglot-ensure)
-(maybe-require-package 'treemacs)
-(maybe-require-package 'lsp-treemacs)
-(maybe-require-package 'lsp-java)
-(maybe-require-package 'company)
-(add-hook 'java-mode-hook #'lsp)
+(add-hook 'java-mode-hook 'eglot-ensure)
+;; (maybe-require-package 'treemacs)
+;; (maybe-require-package 'lsp-treemacs)
+;; (maybe-require-package 'lsp-java)
+;; (maybe-require-package 'company)
+;; (add-hook 'java-mode-hook #'lsp)
 ;;
 ;; (defun bemol-project-find-function (dir)
 ;;   "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
