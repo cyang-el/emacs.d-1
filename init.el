@@ -233,6 +233,9 @@
 ;; f#
 (maybe-require-package 'fsharp-mode)
 
+;; pony
+(maybe-require-package 'ponylang-mode)
+
 ;; chatgpt
 (maybe-require-package 'gptel)
 ;; (setq gptel-api-key "")
