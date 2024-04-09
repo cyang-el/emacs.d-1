@@ -236,6 +236,9 @@
 ;; pony
 (maybe-require-package 'ponylang-mode)
 
+;; odin
+(maybe-require-package 'odin-mode)
+
 ;; chatgpt
 (maybe-require-package 'gptel)
 ;; (setq gptel-api-key "")
