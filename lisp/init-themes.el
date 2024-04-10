@@ -32,9 +32,9 @@
   ;; (setq custom-enabled-themes '(gruvbox-light-medium))
   ;; (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(zenburn))
-  (setq custom-enabled-themes '(anti-zenburn))
+  ;; (setq custom-enabled-themes '(anti-zenburn))
   ;; (setq custom-enabled-themes '(tao-yang))
-  ;; (setq custom-enabled-themes '(one-light))
+  (setq custom-enabled-themes '(one-light))
   (reapply-themes))
 
 (defun dark ()
