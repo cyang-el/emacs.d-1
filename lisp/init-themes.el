@@ -29,18 +29,18 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  ;; (setq custom-enabled-themes '(gruvbox-light-medium))
+  (setq custom-enabled-themes '(gruvbox-light-soft))
   ;; (setq custom-enabled-themes '(solarized-light))
-  ;; (setq custom-enabled-themes '(zenburn))
   ;; (setq custom-enabled-themes '(anti-zenburn))
   ;; (setq custom-enabled-themes '(tao-yang))
-  (setq custom-enabled-themes '(one-light))
+  ;; (setq custom-enabled-themes '(one-light))
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
   (setq custom-enabled-themes '(monokai))
+  ;; (setq custom-enabled-themes '(zenburn))
   ;; (setq custom-enabled-themes '(tao-yin))
   ;; (setq custom-enabled-themes '(gruvbox-dark-soft))
   ;; (setq custom-enabled-themes '(solarized-dark))
