@@ -283,7 +283,7 @@
 (add-hook 'scala-mode-hook 'eglot-ensure)
 
 ;; java
-;; (add-hook 'java-mode-hook 'eglot-ensure)
+(add-hook 'java-mode-hook 'eglot-ensure) ;; install jdtls via homebrew
 ;; (maybe-require-package 'treemacs)
 ;; (maybe-require-package 'lsp-treemacs)
 ;; (maybe-require-package 'lsp-java)
