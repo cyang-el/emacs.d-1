@@ -304,12 +304,15 @@
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
-;; (maybe-require-package 'plantuml-mode)
+(maybe-require-package 'plantuml-mode)
+;; Sample jar configuration
+(setq plantuml-jar-path "~/.emacs.d/jars/plantuml-1.2024.4.jar")
+(setq plantuml-default-exec-mode 'jar)
 
 ;; mermaid js
 ;; npm install -g @mermaid-js/mermaid-cli
-(maybe-require-package 'mermaid-mode)
-(add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
+;; (maybe-require-package 'mermaid-mode)
+;; (add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
 
 ;; imenu-list
 (maybe-require-package 'imenu-list)
