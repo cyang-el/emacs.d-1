@@ -220,7 +220,10 @@
 (setq-default typescript-indent-level 4)
 
 ;; go
-(maybe-require-package 'go-mode)
+(add-to-list 'load-path "~/.emacs.d/go-mode/go-mode.el")
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+;; (maybe-require-package 'go-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; zig
@@ -304,7 +307,10 @@
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
-(maybe-require-package 'plantuml-mode)
+(add-to-list 'load-path "~/.emacs.d/plantuml-mode/plantuml-mode.el")
+(autoload 'plantuml-mode "plantuml-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+;; (maybe-require-package 'plantuml-mode)
 ;; Sample jar configuration
 (setq plantuml-jar-path "~/.emacs.d/jars/plantuml-1.2024.4.jar")
 (setq plantuml-default-exec-mode 'jar)
@@ -329,8 +335,8 @@
   (load custom-file))
 
 ;; https://depp.brause.cc/eyebrowse/
-(maybe-require-package 'eyebrowse)
-(eyebrowse-mode t)
+;; (maybe-require-package 'eyebrowse)
+;; (eyebrowse-mode t)
 
 
 ;; Locales (setting them earlier in this file doesn't work in X)

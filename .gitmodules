@@ -1,0 +1,6 @@
+[submodule "go-mode"]
+	path = go-mode
+	url = git@github.com:dominikh/go-mode.el.git
+[submodule "plantuml-mode"]
+	path = plantuml-mode
+	url = git@github.com:skuro/plantuml-mode.git
