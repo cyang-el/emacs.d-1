@@ -220,7 +220,7 @@
 (setq-default typescript-indent-level 4)
 
 ;; go
-(add-to-list 'load-path "~/.emacs.d/go-mode/go-mode.el")
+(add-to-list 'load-path "~/.emacs.d/go-mode")
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 ;; (maybe-require-package 'go-mode)
@@ -307,7 +307,7 @@
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
-(add-to-list 'load-path "~/.emacs.d/plantuml-mode/plantuml-mode.el")
+(add-to-list 'load-path "~/.emacs.d/plantuml-mode")
 (autoload 'plantuml-mode "plantuml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 ;; (maybe-require-package 'plantuml-mode)
