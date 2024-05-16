@@ -30,10 +30,10 @@
   "Activate a light color theme."
   (interactive)
   ;; (setq custom-enabled-themes '(gruvbox-light-soft))
-  (setq custom-enabled-themes '(solarized-light))
+  ;; (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(anti-zenburn))
   ;; (setq custom-enabled-themes '(tao-yang))
-  ;; (setq custom-enabled-themes '(one-light))
+  (setq custom-enabled-themes '(one-light))
   (reapply-themes))
 
 (defun dark ()
@@ -76,7 +76,10 @@
   (interactive)
   (set-face-attribute 'default nil :height 110))
 
-(add-hook 'after-init-hook 'my-small-font)
+(if (string= system-name "gerty-f")
+    (add-hook 'after-init-hook 'my-small-font)
+  (add-hook 'after-init-hook 'my-big-font))
+
 
 ;; windows size
 (setq initial-frame-alist '
