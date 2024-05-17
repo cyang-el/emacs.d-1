@@ -11,6 +11,7 @@
 (require-package 'tao-theme)
 (require-package 'one-themes)
 (require-package 'anti-zenburn-theme)
+(require-package 'leuven-theme)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
 ;; first-time startup on Emacs > 26.3.
@@ -33,7 +34,8 @@
   ;; (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(anti-zenburn))
   ;; (setq custom-enabled-themes '(tao-yang))
-  (setq custom-enabled-themes '(one-light))
+  ;; (setq custom-enabled-themes '(one-light))
+  (setq custom-enabled-themes '(leuven))
   (reapply-themes))
 
 (defun dark ()
