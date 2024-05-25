@@ -12,6 +12,7 @@
 (require-package 'one-themes)
 (require-package 'anti-zenburn-theme)
 (require-package 'leuven-theme)
+(require-package 'occidental-theme)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
 ;; first-time startup on Emacs > 26.3.
@@ -30,7 +31,8 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(gruvbox-light-hard))
+  ;; (setq custom-enabled-themes '(gruvbox-light-hard))
+  (setq custom-enabled-themes '(occidental))
   ;; (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(anti-zenburn))
   ;; (setq custom-enabled-themes '(tao-yang))
