@@ -226,21 +226,32 @@
 ;; (maybe-require-package 'go-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
+;; offline modes: zig, odin, ponylang
+(add-to-list 'load-path "~/.emacs.d/modes")
+
 ;; zig
-(maybe-require-package 'zig-mode)
+(autoload 'zig-mode "zig-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
 (add-hook 'zig-mode-hook 'eglot-ensure)
+
+;; pony
+(autoload 'ponylang-mode "ponylang-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.pony\\'" . ponylang-mode))
+
+;; odin
+(autoload 'odin-mode "odin-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-mode))
+
+;; vue.js
+(maybe-require-package 'vue-mode)
+(autoload 'vue-mode "vue-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 
 ;; raku
 (maybe-require-package 'raku-mode)
 
 ;; f#
 (maybe-require-package 'fsharp-mode)
-
-;; pony
-(maybe-require-package 'ponylang-mode)
-
-;; odin
-(maybe-require-package 'odin-mode)
 
 ;; chatgpt
 (maybe-require-package 'gptel)

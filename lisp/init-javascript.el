@@ -17,11 +17,10 @@
 
 (setq-default js-indent-level 2)
 
-
 
 ;; js2-mode
 
-;; Change some defaults: customize them to override
+Change some defaults: customize them to override
 (setq-default js2-bounce-indent-p nil)
 (with-eval-after-load 'js2-mode
   ;; Disable js2 mode's syntax error highlighting by default...
@@ -68,44 +67,45 @@
 
 ;;; Coffeescript
 
-(when (maybe-require-package 'coffee-mode)
-  (with-eval-after-load 'coffee-mode
-    (setq-default coffee-tab-width js-indent-level))
+;; (when (maybe-require-package 'coffee-mode)
+;;   (with-eval-after-load 'coffee-mode
+;;     (setq-default coffee-tab-width js-indent-level))
 
-  (when (fboundp 'coffee-mode)
-    (add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'" . coffee-mode))))
+;;   (when (fboundp 'coffee-mode)
+;;     (add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'" . coffee-mode))))
 
 
 ;; Run and interact with an inferior JS via js-comint.el
 
-(when (maybe-require-package 'js-comint)
-  (setq js-comint-program-command "node")
+;; (when (maybe-require-package 'js-comint)
+;;   (setq js-comint-program-command "node")
 
-  (defvar inferior-js-minor-mode-map (make-sparse-keymap))
-  (define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)
-  (define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
+;;   (defvar inferior-js-minor-mode-map (make-sparse-keymap))
+;;   (define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)
+;;   (define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
 
-  (define-minor-mode inferior-js-keys-mode
-    "Bindings for communicating with an inferior js interpreter."
-    :init-value nil :lighter " InfJS" :keymap inferior-js-minor-mode-map)
+;;   (define-minor-mode inferior-js-keys-mode
+;;     "Bindings for communicating with an inferior js interpreter."
+;;     :init-value nil :lighter " InfJS" :keymap inferior-js-minor-mode-map)
 
-  (dolist (hook '(js2-mode-hook js-mode-hook))
-    (add-hook hook 'inferior-js-keys-mode)))
+;;   (dolist (hook '(js2-mode-hook js-mode-hook))
+;;     (add-hook hook 'inferior-js-keys-mode)))
 
 
 ;; Alternatively, use skewer-mode
 
-(when (maybe-require-package 'skewer-mode)
-  (with-eval-after-load 'skewer-mode
-    (add-hook 'skewer-mode-hook
-              (lambda () (inferior-js-keys-mode -1)))))
+;; (when (maybe-require-package 'skewer-mode)
+;;   (with-eval-after-load 'skewer-mode
+;;     (add-hook 'skewer-mode-hook
+;;               (lambda () (inferior-js-keys-mode -1)))))
 
 
 
 (when (maybe-require-package 'add-node-modules-path)
-  (dolist (mode '(js-mode js2-mode coffee-mode))
+  (dolist (mode '(js-mode js2-mode))
     (add-hook (derived-mode-hook-name mode) 'add-node-modules-path)))
 
+(add-hook 'js-mode-hook 'eglot-ensure)
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
