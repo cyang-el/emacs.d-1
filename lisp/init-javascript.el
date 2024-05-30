@@ -20,7 +20,7 @@
 
 ;; js2-mode
 
-Change some defaults: customize them to override
+;; Change some defaults: customize them to override
 (setq-default js2-bounce-indent-p nil)
 (with-eval-after-load 'js2-mode
   ;; Disable js2 mode's syntax error highlighting by default...
@@ -94,10 +94,10 @@ Change some defaults: customize them to override
 
 ;; Alternatively, use skewer-mode
 
-;; (when (maybe-require-package 'skewer-mode)
-;;   (with-eval-after-load 'skewer-mode
-;;     (add-hook 'skewer-mode-hook
-;;               (lambda () (inferior-js-keys-mode -1)))))
+(when (maybe-require-package 'skewer-mode)
+  (with-eval-after-load 'skewer-mode
+    (add-hook 'skewer-mode-hook
+              (lambda () (inferior-js-keys-mode -1)))))
 
 
 

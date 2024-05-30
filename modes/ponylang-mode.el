@@ -4,7 +4,7 @@
 ;; Version: 0.6.0
 ;; URL: https://github.com/ponylang/ponylang-mode
 ;; Keywords: languages programming
-;; Package-Requires: ((emacs "25.1") (dash "2.17.0") (hydra "0.15.0") (hl-todo "3.1.2") (yafolding "0.4.1") (yasnippet "0.14.0") (company-ctags "0.0.4") (rainbow-delimiters "2.1.4") (fill-column-indicator "1.90"))
+;; Package-Requires: ((emacs "25.1") (dash "2.17.0") (hydra "0.15.0") (hl-todo "3.1.2") (yafolding "0.4.1") (yasnippet "0.14.0") (company-ctags "0.0.4") (rainbow-delimiters "2.1.4")
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -71,7 +71,8 @@
 (require 'yasnippet)
 (require 'whitespace)
 (require 'rainbow-delimiters)
-(require 'fill-column-indicator)
+
+;; (require 'fill-column-indicator)
 
 (defvar ponylang-mode-hook nil)
 
