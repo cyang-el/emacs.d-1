@@ -75,7 +75,7 @@
 (defun my-big-font ()
   "My big font."
   (interactive)
-  (set-face-attribute 'default nil :height 140))
+  (set-face-attribute 'default nil :height 170))
 
 (defun my-small-font ()
   "My small font."
