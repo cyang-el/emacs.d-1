@@ -82,6 +82,11 @@
   (interactive)
   (set-face-attribute 'default nil :height 110))
 
+(defun my-mid-font ()
+  "My small font."
+  (interactive)
+  (set-face-attribute 'default nil :height 130))
+
 (if (string= system-name "gerty-f")
     (add-hook 'after-init-hook 'my-small-font)
   (add-hook 'after-init-hook 'my-big-font))
