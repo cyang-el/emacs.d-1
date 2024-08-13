@@ -87,7 +87,7 @@
   (interactive)
   (set-face-attribute 'default nil :height 130))
 
-(if (string= system-name "gerty-f")
+(if (string= system-name "gerty")
     (add-hook 'after-init-hook 'my-small-font)
   (add-hook 'after-init-hook 'my-big-font))
 
