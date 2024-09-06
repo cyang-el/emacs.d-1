@@ -184,8 +184,7 @@
 
 ;; tla+ https://github.com/mrc/tla-tools
 (maybe-require-package 'polymode)
-(require 'tla-pcal-mode)
-(require 'tla-tools)
+(require 'tla-pcal-mode)(require 'tla-tools)
 
 ;;; Basic cloudformation setup
 (maybe-require-package 'cfn-mode)
@@ -220,27 +219,27 @@
 (setq-default typescript-indent-level 4)
 
 ;; go
-(add-to-list 'load-path "~/.emacs.d/go-mode")
-;; (autoload 'go-mode "go-mode" nil t)
+(add-to-list 'load-path "~/.emacs.d/go-mode.el")
+(autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 ;; (maybe-require-package 'go-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; offline modes: zig, odin, ponylang
-(add-to-list 'load-path "~/.emacs.d/modes")
+(add-to-list 'load-path "~/.emacs.d/modes/")
 
 ;; zig
-;; (autoload 'zig-mode "zig-mode" nil t)
+(autoload 'zig-mode "zig-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
 (add-hook 'zig-mode-hook 'eglot-ensure)
 
 ;; pony
-;; (autoload 'ponylang-mode "ponylang-mode" nil t)
 (load "~/.emacs.d/modes/fill-column-indicator.el")
+(autoload 'ponylang-mode "ponylang-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.pony\\'" . ponylang-mode))
 
 ;; odin
-;; (autoload 'odin-mode "odin-mode" nil t)
+(autoload 'odin-mode "odin-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-mode))
 
 ;; vue.js
@@ -319,7 +318,7 @@
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; plantuml
-(add-to-list 'load-path "~/.emacs.d/plantuml-mode")
+(add-to-list 'load-path "~/.emacs.d/plantuml-mode/plantuml-mode.el")
 (autoload 'plantuml-mode "plantuml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 ;; (maybe-require-package 'plantuml-mode)
