@@ -260,62 +260,15 @@
 
 ;; c#
 ;; (maybe-require-package 'omnisharp)
-;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
-;; (eval-after-load
-;;     'company
-;;   '(add-to-list 'company-backends 'company-omnisharp))
-;; (add-hook 'csharp-mode-hook #'company-mode)
-;; (add-hook 'csharp-mode-hook #'flycheck-mode)
-
-;; scala
-(setq flycheck-disabled-checkers '(scala scala-scalastyle))
-
-(maybe-require-package 'scala-mode)
-(use-package scala-mode
-  :mode "\\.s\\(cala\\|bt\\)$"
-  :config
-  (load-file "~/.emacs.d/lisp/ob-scala.el"))
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(; likely other languages here
-   (scala . t)))
-
-(maybe-require-package 'sbt-mode)
-(use-package sbt-mode
-  :commands sbt-start sbt-command
-  :config
-  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
-  ;; allows using SPACE when in the minibuffer
-  (substitute-key-definition
-   'minibuffer-complete-word
-   'self-insert-command
-   minibuffer-local-completion-map)
-  ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
-  (setq sbt:program-options '("-Dsbt.supershell=false")))
-
-(add-hook 'scala-mode-hook 'eglot-ensure)
-
-;; java
-(add-hook 'java-mode-hook 'eglot-ensure) ;; install jdtls via homebrew
-;; (maybe-require-package 'treemacs)
-;; (maybe-require-package 'lsp-treemacs)
-;; (maybe-require-package 'lsp-java)
-;; (maybe-require-package 'company)
-;; (add-hook 'java-mode-hook #'lsp)
-;;
-;; (defun bemol-project-find-function (dir)
-;;   "Bemol for amazon-brazil emacs integration https://w.amazon.com/bin/view/Bemol"
-;;   (let ((root (locate-dominating-file dir ".bemol")))
-;;     (and root (cons 'transient root))))
-
-;; (with-eval-after-load 'project
-;;   (add-to-list 'project-find-functions 'bemol-project-find-function))
-
-;; kotlin
+;; (add-hook 'csharp-mode-hook 'omnisharp-mode)o;; kotlin
 (maybe-require-package 'kotlin-mode)
 (add-hook 'kotlin-mode-hook 'eglot-ensure)
 ;; (add-hook 'kotlin-mode-hook #'lsp)
+
+;; tidalcycle
+(maybe-require-package 'tidal)
+(setq tidal-boot-script-path "/home/cy/.cabal/store/ghc-9.4.7/tidal-1.9.5-8504329ed407541fafc4841d341cf62ec3b0e4427089da4d0ccfc8fe4ef0546c/share/BootTidal.hs
+")
 
 ;; plantuml
 (add-to-list 'load-path "~/.emacs.d/plantuml-mode/plantuml-mode.el")
@@ -330,6 +283,10 @@
 ;; npm install -g @mermaid-js/mermaid-cli
 ;; (maybe-require-package 'mermaid-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
+
+;; k8s
+(add-to-list 'load-path "~/.emacs.d/kubed")
+(require 'kubed)
 
 ;; imenu-list
 (maybe-require-package 'imenu-list)
