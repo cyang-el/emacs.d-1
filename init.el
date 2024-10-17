@@ -259,8 +259,10 @@
 ;; (setq gptel-model "gpt-3.5-turbo")
 
 ;; c#
-;; (maybe-require-package 'omnisharp)
-;; (add-hook 'csharp-mode-hook 'omnisharp-mode)o;; kotlin
+(maybe-require-package 'omnisharp)
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+
+;; kotlin
 (maybe-require-package 'kotlin-mode)
 (add-hook 'kotlin-mode-hook 'eglot-ensure)
 ;; (add-hook 'kotlin-mode-hook #'lsp)
