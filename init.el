@@ -282,9 +282,8 @@
 (setq plantuml-default-exec-mode 'jar)
 
 ;; mermaid js
-;; npm install -g @mermaid-js/mermaid-cli
-;; (maybe-require-package 'mermaid-mode)
-;; (add-to-list 'auto-mode-alist '("\\.png\\'" . image-mode))
+(autoload 'mermaid-mode "mermaid-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.mmd\\'" . mermaid-mode))
 
 ;; k8s
 (add-to-list 'load-path "~/.emacs.d/kubed")
