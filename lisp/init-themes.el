@@ -33,7 +33,7 @@
   "Activate a light color theme."
   (interactive)
   ;; (setq custom-enabled-themes '(professional))
-  (setq custom-enabled-themes '(gruvbox-light-soft))
+  (setq custom-enabled-themes '(gruvbox-light-hard))
   ;; (setq custom-enabled-themes '(occidental))
   ;; (setq custom-enabled-themes '(solarized-light))
   ;; (setq custom-enabled-themes '(anti-zenburn))
