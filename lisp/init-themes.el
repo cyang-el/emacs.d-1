@@ -77,12 +77,12 @@
 (defun my-big-font ()
   "My big font."
   (interactive)
-  (set-face-attribute 'default nil :height 170 :font "Source Code Pro"))
+  (set-face-attribute 'default nil :height 190 :font "Source Code Pro"))
 
 (defun my-small-font ()
   "My small font."
   (interactive)
-  (set-face-attribute 'default nil :height 90 :font "Source Code Pro"))
+  (set-face-attribute 'default nil :height 100 :font "Source Code Pro"))
 
 (defun my-mid-font ()
   "My small font."
