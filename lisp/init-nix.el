@@ -21,6 +21,10 @@
 
           (add-to-list 'company-backends 'company-nixos-options))))))
 
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil"))))
+
+(nix-mode . eglot-ensure)
 
 (provide 'init-nix)
 ;;; init-nix.el ends here
