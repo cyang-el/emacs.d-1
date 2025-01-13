@@ -69,7 +69,7 @@
 (defalias 'ri 'yari)
 
 ;;; eglot support
-(add-hook 'ruby-mode-hook 'eglot-ensure)
+(add-hook 'ruby-mode-hook #'eglot-ensure)
 
 
 (require-package 'bundler)

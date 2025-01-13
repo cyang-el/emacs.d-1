@@ -24,7 +24,7 @@
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs '(nix-mode . ("nil"))))
 
-(nix-mode . eglot-ensure)
+(add-hook 'nix-mode-hook #'eglot-ensure)
 
 (provide 'init-nix)
 ;;; init-nix.el ends here

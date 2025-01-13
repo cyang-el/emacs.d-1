@@ -15,7 +15,7 @@
 (when (version< emacs-version "26.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
-(setq warning-minimum-level :emergency)
+;; (setq warning-minimum-level :emergency)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
@@ -202,71 +202,18 @@
 ;; eglot
 (maybe-require-package 'eglot)
 
-;; c++, using ccls
-(add-hook 'c++-mode-hook 'eglot-ensure)
-
-;; c, using clangd
-(add-hook 'c-mode-hook 'eglot-ensure)
-
-;; hare
-(require 'hare-mode)
-
-;; janet
-(maybe-require-package 'janet-mode)
-
-;; typescript
-(maybe-require-package 'typescript-mode)
-(add-hook 'typescript-mode-hook 'eglot-ensure)
-;; (add-hook 'typescript-mode-hook 'lsp)
-(setq-default typescript-indent-level 4)
-
 ;; go
 (add-to-list 'load-path "~/.emacs.d/go-mode.el")
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 ;; (maybe-require-package 'go-mode)
-(add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook #'eglot-ensure)
 
-;; offline modes: zig, odin, ponylang
-(add-to-list 'load-path "~/.emacs.d/modes/")
+;; c++, using ccls
+(add-hook 'c++-mode-hook #'eglot-ensure)
 
-;; zig
-(autoload 'zig-mode "zig-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
-(add-hook 'zig-mode-hook 'eglot-ensure)
-
-;; pony
-(load "~/.emacs.d/modes/fill-column-indicator.el")
-(autoload 'ponylang-mode "ponylang-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.pony\\'" . ponylang-mode))
-
-;; odin
-(autoload 'odin-mode "odin-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-mode))
-
-;; vue.js
-(maybe-require-package 'vue-mode)
-(autoload 'vue-mode "vue-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
-
-;; raku
-;; (maybe-require-package 'raku-mode)
-
-;; f#
-;; (maybe-require-package 'fsharp-mode)
-
-;; chatgpt
-;; (maybe-require-package 'gptel)
-;; (setq gptel-api-key "")
-;; (setq gptel-model "gpt-3.5-turbo")
-
-;; c#
-(maybe-require-package 'omnisharp)
-(add-hook 'csharp-mode-hook 'omnisharp-mode)
-
-;; kotlin
-(maybe-require-package 'kotlin-mode)
-(add-hook 'kotlin-mode-hook 'eglot-ensure)
+;; c, using clangd
+(add-hook 'c-mode-hook #'eglot-ensure)
 ;; (add-hook 'kotlin-mode-hook #'lsp)
 
 ;; tidalcycle
