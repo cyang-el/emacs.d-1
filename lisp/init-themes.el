@@ -82,7 +82,7 @@
 (defun my-small-font ()
   "My small font."
   (interactive)
-  (set-face-attribute 'default nil :height 100 :font "Hack"))
+  (set-face-attribute 'default nil :height 100 :font "Source Code Pro"))
 
 (defun my-mid-font ()
   "My small font."

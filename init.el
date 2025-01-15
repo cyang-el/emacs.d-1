@@ -209,6 +209,10 @@
 ;; (maybe-require-package 'go-mode)
 (add-hook 'go-mode-hook #'eglot-ensure)
 
+;; zig
+(add-to-list 'load-path "~/.emacs.d/zig-mode.el")
+(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
+
 ;; c++, using ccls
 (add-hook 'c++-mode-hook #'eglot-ensure)
 
