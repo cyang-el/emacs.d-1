@@ -392,7 +392,7 @@ typical word processor."
                         `(org-level-1 ((t (:foreground "dark green")))))
 
 (custom-theme-set-faces 'user
-                        `(org-level-2 ((t (:foreground "bisque4")))))
+                        `(org-level-2 ((t (:foreground "sienna")))))
 
 ;; (load-file "~/.emacs.d/lisp/init-org-bullets.el")
 ;; (require 'org-bullets)
