@@ -388,15 +388,16 @@ typical word processor."
       (sql . t)
       (sqlite . t)))))
 
-(load-file "~/.emacs.d/lisp/init-org-bullets.el")
-(require 'org-bullets)
+(custom-theme-set-faces 'user
+                        `(org-level-1 ((t (:foreground "dark green")))))
+
+(custom-theme-set-faces 'user
+                        `(org-level-2 ((t (:foreground "bisque4")))))
+
+;; (load-file "~/.emacs.d/lisp/init-org-bullets.el")
+;; (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
-
-(when (and
-       (string-match "^.*\.amazon\.com$" system-name)
-       (eq system-type 'darwin))
-  (setq org-agenda-files '("~/workplace/note.org")))
 
 (provide 'init-org)
 ;;; init-org.el ends here
