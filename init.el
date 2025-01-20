@@ -228,7 +228,7 @@
 ")
 
 ;; plantuml
-(add-to-list 'load-path "~/.emacs.d/plantuml-mode/plantuml-mode.el")
+(add-to-list 'load-path "~/.emacs.d/plantuml-mode/")
 (autoload 'plantuml-mode "plantuml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 ;; (maybe-require-package 'plantuml-mode)
@@ -236,9 +236,20 @@
 (setq plantuml-jar-path "~/.emacs.d/jars/plantuml-1.2024.4.jar")
 (setq plantuml-default-exec-mode 'jar)
 
-;; mermaid js
+;; mermaid js, odin, pony
+(add-to-list 'load-path "~/.emacs.d/modes/")
+
+;; mermaid
 (autoload 'mermaid-mode "mermaid-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.mmd\\'" . mermaid-mode))
+
+;; odin
+(autoload 'odin-mode "odin-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-mode))
+
+;; pony
+(autoload 'pony-mode "pony-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.pony\\'" . mermaid-mode))
 
 ;; k8s
 (add-to-list 'load-path "~/.emacs.d/kubed")
