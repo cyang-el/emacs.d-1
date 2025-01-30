@@ -42,5 +42,7 @@
 (when (maybe-require-package 'reformatter)
   (reformatter-define black :program "black" :args '("-")))
 
+(add-hook 'python-mode-hook #'eglot-ensure)
+
 (provide 'init-python)
 ;;; init-python.el ends here

@@ -399,5 +399,7 @@ typical word processor."
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
+(setq browse-url-browser-function #'browse-url-firefox)
+
 (provide 'init-org)
 ;;; init-org.el ends here
