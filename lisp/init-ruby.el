@@ -69,6 +69,8 @@
 (defalias 'ri 'yari)
 
 ;;; eglot support
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
 (add-hook 'ruby-mode-hook #'eglot-ensure)
 
 

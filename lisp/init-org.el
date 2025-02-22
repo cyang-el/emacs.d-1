@@ -394,8 +394,11 @@ typical word processor."
 (custom-theme-set-faces 'user
                         `(org-level-2 ((t (:foreground "sienna")))))
 
-;; (load-file "~/.emacs.d/lisp/init-org-bullets.el")
-;; (require 'org-bullets)
+(custom-theme-set-faces 'user
+                        `(org-level-4 ((t (:foreground "brown")))))
+
+(load-file "~/.emacs.d/lisp/init-org-bullets.el")
+(require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
