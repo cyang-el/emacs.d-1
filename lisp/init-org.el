@@ -402,6 +402,15 @@ typical word processor."
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
+(defun my-refresh-org-agenda ()
+  "Refresh the Org Agenda buffer when it becomes visible."
+  (when (and (eq major-mode 'org-agenda-mode)
+             (not (minibufferp)))
+    (org-agenda-redo)))
+
+;; This hook runs whenever the buffer list changes (e.g. when switching buffers)
+(add-hook 'buffer-list-update-hook #'my-refresh-org-agenda)
+
 (setq browse-url-browser-function #'browse-url-firefox)
 
 (provide 'init-org)
