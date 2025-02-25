@@ -96,7 +96,7 @@
 (require 'init-markdown)
 (require 'init-csv)
 
-(require 'init-javascript)
+;; (require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
@@ -269,6 +269,94 @@
 (setq custom-file (expand-file-name "customs.el" user-emacs-directory))
 (add-hook 'elpaca-after-init-hook (when (file-exists-p custom-file)
                                     (load custom-file)))
+
+;; ts, tsx, react
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :config
+  (setq typescript-indent-level 2))
+
+;; Install web-mode for TSX files
+(use-package web-mode
+  :mode (("\\.tsx\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode)
+         ("\\.html\\'" . web-mode))
+  :config
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-enable-auto-pairing t
+        web-mode-enable-css-colorization t
+        ;; Disable element highlights for less noise
+        web-mode-enable-current-element-highlight nil
+        web-mode-enable-current-column-highlight nil))
+
+;; ========== LSP Integration ==========
+;; Language Server Protocol for code intelligence
+(use-package lsp-mode
+  :commands lsp
+  :hook ((typescript-mode . lsp)
+         (web-mode . lsp))
+  :config
+  (setq lsp-prefer-flymake nil
+        ;; Reduce symbol highlighting
+        lsp-enable-symbol-highlighting nil
+        lsp-enable-indentation t
+        lsp-enable-on-type-formatting t
+        lsp-enable-snippet t
+        ;; Disable headerline breadcrumbs for cleaner UI
+        lsp-headerline-breadcrumb-enable nil)
+
+  ;; Configure typescript-language-server
+  (setq lsp-clients-typescript-server "typescript-language-server"
+        lsp-clients-typescript-server-args '("--stdio")
+        lsp-typescript-suggest-complete-function-calls t
+        lsp-typescript-format-enable t))
+
+;; UI enhancements for LSP - minimal configuration
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :after lsp-mode
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-position 'bottom  ;; Show docs in minibuffer at bottom
+        lsp-ui-doc-delay 0.5
+        lsp-ui-doc-show-with-cursor t  ;; Show docs when cursor is on symbol
+        lsp-ui-doc-show-with-mouse nil  ;; Disable showing on mouse hover
+        lsp-ui-doc-max-width 80
+        lsp-ui-doc-max-height 20
+        lsp-ui-doc-use-childframe nil  ;; Don't use child frame, use minibuffer
+        ;; Disable sideline completely for minimal UI
+        lsp-ui-sideline-enable nil))
+
+;; Company for autocompletion with minimal UI
+(use-package company
+  :hook (prog-mode . company-mode)
+  :config
+  (setq company-minimum-prefix-length 2  ;; Slightly higher threshold to reduce popups
+        company-idle-delay 0.3           ;; Slightly longer delay
+        company-tooltip-align-annotations t
+        company-tooltip-limit 8))
+
+;; ========== Syntax Checking ==========
+;; Flycheck for real-time syntax checking with reduced noise
+(use-package flycheck
+  :hook ((typescript-mode . flycheck-mode)
+         (web-mode . flycheck-mode))
+  :config
+  ;; Only check syntax on save, not while typing
+  (setq flycheck-check-syntax-automatically '(save mode-enabled)
+        ;; Disable highlighting the whole line
+        flycheck-highlighting-mode 'symbols
+        ;; Disable fringe indicators
+        flycheck-indication-mode nil)
+
+  ;; Configure eslint for React and TypeScript
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (flycheck-add-mode 'javascript-eslint 'typescript-mode))
+
+
 
 ;; https://depp.brause.cc/eyebrowse/
 ;; (maybe-require-package 'eyebrowse)
