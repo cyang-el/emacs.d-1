@@ -160,16 +160,27 @@ typical word processor."
 
 ;;; To-do settings
 
-;; (setq org-todo-keywords
-;;       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
+(setq org-todo-keywords
+      (quote ((sequence "TODO" "NEXT" "DELEGATED" "CHECKBACK" "NOTNOW" "DONE" )
+              (sequence "TRY" "BRANCH" "NAH" "GOOD" "OK"))))
+;;               (sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
 ;;               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
 ;;               (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
 ;;       org-todo-repeat-to-state "NEXT")
 
-;; (setq org-todo-keyword-faces
-;;       (quote (("NEXT" :inherit warning)
-;;               ("PROJECT" :inherit font-lock-string-face))))
-
+(setq org-todo-keyword-faces
+      (quote (("TODO" . (:foreground "brown" :weight bold))
+              ("NEXT"  . (:foreground "blue" :weight bold))
+              ("DELEGATED" . (:foreground "red" :weight bold))
+              ("CHECKBACK" . (:foreground "blue" :weight bold))
+              ("NOTNOW" . (:foreground "olive" :weight bold))
+              ("DONE" . (:foreground "dark green" :weight bold))
+              ("TRY"  . (:foreground "blue" :weight bold))
+              ("BRANCH" . (:foreground "brown" :weight bold))
+              ("NAH" . (:foreground "dark grey"))
+              ("GOOD" . (:foreground "dark green"))
+              ("OK" . (:foreground "dark green" :weight bold))
+              )))
 
 
 ;;; Agenda views
@@ -369,10 +380,11 @@ typical word processor."
    (seq-filter
     (lambda (pair)
       (featurep (intern (concat "ob-" (symbol-name (car pair))))))
-    '((R . t)
-      (ditaa . t)
+    '((ditaa . t)
       (dot . t)
       (emacs-lisp . t)
+      (go . t)
+      (typescript . t)
       (gnuplot . t)
       (haskell . nil)
       (latex . t)
@@ -382,8 +394,6 @@ typical word processor."
       (plantuml . t)
       (python . t)
       (ruby . t)
-      (screen . nil)
-      (sh . t) ;; obsolete
       (shell . t)
       (sql . t)
       (sqlite . t)))))
