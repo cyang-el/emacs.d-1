@@ -161,8 +161,8 @@ typical word processor."
 ;;; To-do settings
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO" "NEXT" "DELEGATED" "CHECKBACK" "NOTNOW" "DONE" )
-              (sequence "TRY" "BRANCH" "NAH" "GOOD" "OK"))))
+      (quote ((sequence "TODO" "NEXT" "WIP" "DELEGATED" "CHECKBACK" "NOTNOW" "DONE" )
+              (sequence "TRY" "BRANCH" "WIP" "NAH" "GOOD" "OK"))))
 ;;               (sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
 ;;               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
 ;;               (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
@@ -171,9 +171,10 @@ typical word processor."
 (setq org-todo-keyword-faces
       (quote (("TODO" . (:foreground "brown" :weight bold))
               ("NEXT"  . (:foreground "blue" :weight bold))
+              ("WIP" . (:foreground "blue" :weight bold))
               ("DELEGATED" . (:foreground "red" :weight bold))
               ("CHECKBACK" . (:foreground "blue" :weight bold))
-              ("NOTNOW" . (:foreground "olive" :weight bold))
+              ("NOTNOW" . (:foreground "dark grey" :weight bold))
               ("DONE" . (:foreground "dark green" :weight bold))
               ("TRY"  . (:foreground "blue" :weight bold))
               ("BRANCH" . (:foreground "brown" :weight bold))
