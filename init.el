@@ -192,6 +192,23 @@
 (maybe-require-package 'cfn-mode)
 (add-auto-mode 'cfn-mode "\\.template\\'")
 
+;; https://github.com/pietroiusti/draw-tree
+;; Example:
+;;
+;; (draw-tree '((a) (b . c) (d e)))  ==>
+;; "
+;; [o|o]---[o|o]---[o|/]
+;;  |       |       |
+;; [o|/]    |      [o|o]---[o|/]
+;;  |       |       |       |
+;;  a       |       d       e
+;;          |
+;;         [o|o]--- c
+;;          |
+;;          b
+;; "
+(load-file "~/.emacs.d/draw-tree.el")
+
 ;; lsp-mode
 (setq lsp-keymap-prefix "C-c l")
 (maybe-require-package 'lsp-mode)
