@@ -161,8 +161,8 @@ typical word processor."
 ;;; To-do settings
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO" "NEXT" "WIP" "DELEGATED" "CHECKBACK" "NOTNOW" "DONE" )
-              (sequence "TRY" "BRANCH" "WIP" "NAH" "GOOD" "OK"))))
+      (quote ((sequence "TODO" "NEXT" "WIP" "DELEGATED" "CHECKBACK" "NOTNOW" "|" "DONE" )
+              (sequence "TRY" "BRANCH" "WIP" "|" "NAH" "GOOD" "OK"))))
 ;;               (sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
 ;;               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
 ;;               (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
