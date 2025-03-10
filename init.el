@@ -59,7 +59,27 @@
 (maybe-require-package 'diminish)
 (maybe-require-package 'scratch)
 (maybe-require-package 'command-log-mode)
-
+
+;; tree-sitter
+(maybe-require-package 'tree-sitter)
+(maybe-require-package 'tree-sitter-langs)
+(setq treesit-language-source-alist
+      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+        (cmake "https://github.com/uyha/tree-sitter-cmake")
+        (css "https://github.com/tree-sitter/tree-sitter-css")
+        (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+        (go "https://github.com/tree-sitter/tree-sitter-go")
+        (html "https://github.com/tree-sitter/tree-sitter-html")
+        (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+        (json "https://github.com/tree-sitter/tree-sitter-json")
+        (make "https://github.com/alemuller/tree-sitter-make")
+        (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+        (python "https://github.com/tree-sitter/tree-sitter-python")
+        (toml "https://github.com/tree-sitter/tree-sitter-toml")
+        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+        (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
@@ -288,25 +308,15 @@
                                     (load custom-file)))
 
 ;; ts, tsx, react
+(maybe-require-package 'coverlay)
+(maybe-require-package 'origami)
+(maybe-require-package 'corfu)
+(maybe-require-package 'tsx-mode)
+(treesit-install-language-grammar typescript)
 
-(maybe-require-package 'typescript-mode)
-(maybe-require-package 'web-mode)
-(maybe-require-package 'dtrt-indent)
-
-(use-package typescript-mode
-  :mode (("\\.ts\\'" . typescript-mode)
-         ("\\.tsx\\'" . typescript-mode))
-  :config
-  (setq typescript-indent-level 2))
-
-;; Web-mode for better TSX support
-(use-package web-mode
-  :mode ("\\.tsx\\'" . web-mode)
-  :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2
-        web-mode-content-types-alist '(("jsx" . "\\.tsx\\'"))))
+(use-package tsx-mode
+  :mode (("\\.ts\\'" . tsx-mode)
+         ("\\.tsx\\'" . tsx-mode)))
 
 ;; Auto-detect indentation
 (use-package dtrt-indent
@@ -322,28 +332,15 @@
 
 ;; Eglot for language server protocol integration
 (use-package eglot
-  :hook ((typescript-mode web-mode) . eglot-ensure)
+  :hook ((tsx-mode) . eglot-ensure)
   :config
   ;; Add tsx support to eglot
   (add-to-list 'eglot-server-programs
-               '((typescript-mode web-mode) . ("typescript-language-server" "--stdio")))
+               '((tsx-mode) . ("typescript-language-server" "--stdio")))
 
   ;; Configure eglot
   (setq eglot-autoshutdown t)
   (setq eglot-confirm-server-initiated-edits nil))
-
-;; Prettier for code formatting
-(use-package prettier-js
-  :hook ((typescript-mode web-mode) . prettier-js-mode)
-  :config
-  (setq prettier-js-args '("--single-quote")))
-
-;; Flycheck for real-time syntax checking
-(use-package flycheck
-  :init (global-flycheck-mode)
-  :config
-  (flycheck-add-mode 'typescript-tslint 'web-mode)
-  (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 ;; https://depp.brause.cc/eyebrowse/
 ;; (maybe-require-package 'eyebrowse)

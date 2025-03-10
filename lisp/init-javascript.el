@@ -13,7 +13,8 @@
 
 (with-eval-after-load 'js
   (sanityinc/major-mode-lighter 'js-mode "JS")
-  (sanityinc/major-mode-lighter 'js-jsx-mode "JSX"))
+  ;;; (sanityinc/major-mode-lighter 'js-jsx-mode "JSX")
+  )
 
 (setq-default js-indent-level 2)
 
@@ -46,7 +47,8 @@
 
 (with-eval-after-load 'js2-mode
   (sanityinc/major-mode-lighter 'js2-mode "JS2")
-  (sanityinc/major-mode-lighter 'js2-jsx-mode "JSX2"))
+  ;;; (sanityinc/major-mode-lighter 'js2-jsx-mode "JSX2")
+  )
 
 
 
