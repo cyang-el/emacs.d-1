@@ -292,6 +292,36 @@
 (add-to-list 'load-path "~/.emacs.d/kubed")
 (require 'kubed)
 
+;; ts, tsx, react
+;; Install required packages
+(unless (package-installed-p 'web-mode)
+  (package-refresh-contents)
+  (package-install 'web-mode))
+
+;; Web-mode for TSX files
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(setq web-mode-markup-indent-offset 2
+      web-mode-css-indent-offset 2
+      web-mode-code-indent-offset 2
+      web-mode-content-types-alist '(("jsx" . "\\.tsx\\'")))
+
+;; Eglot for LSP support (built-in for Emacs 29+)
+;; For Emacs 28 or earlier, uncomment these lines:
+;; (unless (package-installed-p 'eglot)
+;;   (package-install 'eglot))
+
+(require 'eglot)
+(add-to-list 'eglot-server-programs
+             '(web-mode . ("typescript-language-server" "--stdio")))
+
+;; Hook to enable eglot for TSX files
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (eglot-ensure))))
+
+
 ;; imenu-list
 (maybe-require-package 'imenu-list)
 
@@ -306,41 +336,6 @@
 (setq custom-file (expand-file-name "customs.el" user-emacs-directory))
 (add-hook 'elpaca-after-init-hook (when (file-exists-p custom-file)
                                     (load custom-file)))
-
-;; ts, tsx, react
-(maybe-require-package 'coverlay)
-(maybe-require-package 'origami)
-(maybe-require-package 'corfu)
-(maybe-require-package 'tsx-mode)
-(treesit-install-language-grammar typescript)
-
-(use-package tsx-mode
-  :mode (("\\.ts\\'" . tsx-mode)
-         ("\\.tsx\\'" . tsx-mode)))
-
-;; Auto-detect indentation
-(use-package dtrt-indent
-  :config
-  (dtrt-indent-mode 1))
-
-;; Company for auto-completion
-(use-package company
-  :hook (after-init . global-company-mode)
-  :config
-  (setq company-idle-delay 0.1
-        company-minimum-prefix-length 1))
-
-;; Eglot for language server protocol integration
-(use-package eglot
-  :hook ((tsx-mode) . eglot-ensure)
-  :config
-  ;; Add tsx support to eglot
-  (add-to-list 'eglot-server-programs
-               '((tsx-mode) . ("typescript-language-server" "--stdio")))
-
-  ;; Configure eglot
-  (setq eglot-autoshutdown t)
-  (setq eglot-confirm-server-initiated-edits nil))
 
 ;; https://depp.brause.cc/eyebrowse/
 ;; (maybe-require-package 'eyebrowse)
@@ -371,7 +366,7 @@
                                                   ,(plist-get order :repo) ,repo))))
                   ((zerop (call-process "git" nil buffer t "checkout"
                                         (or (plist-get order :ref) "--"))))
-                  (emacs (concat invocation-directory invocation-name))
+                  x                  (emacs (concat invocation-directory invocation-name))
                   ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
                                         "--eval" "(byte-recompile-directory \".\" 0 'force)")))
                   ((require 'elpaca))
