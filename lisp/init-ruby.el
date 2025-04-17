@@ -61,7 +61,16 @@
   (with-eval-after-load 'robe
     (with-eval-after-load 'company
       (add-to-list 'company-backends 'company-robe))))
+
+;; flycheck
+(defun my/use-bundled-rubocop ()
+  "Use bundle exec rubocop if Gemfile exists."
+  (let ((root-path (locate-dominating-file (buffer-file-name) "Gemfile")))
+    (when root-path
+      (setq-local flycheck-ruby-rubocop-executable "bundle exec rubocop"))))
 
+(add-hook 'ruby-mode-hook #'my/use-bundled-rubocop)
+(add-hook 'ruby-mode-hook #'flycheck-mode)
 
 
 ;;; ri support
